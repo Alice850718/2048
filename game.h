@@ -29,6 +29,7 @@ private:
     Game *game;
     int arr[16];
     int score;
+    void creat();
 };
 
 #endif // GAME_H

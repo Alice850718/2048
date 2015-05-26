@@ -25,6 +25,13 @@ void Game::on_pushButton_2_clicked()
     close();
 }
 
+int Game::arr[16] = {0};
+
+void Game::Creat()
+{
+    if(arr[rand])
+}
+
 void Game::KeyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Up)
