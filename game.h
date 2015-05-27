@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 #include <QKeyEvent>
+#include <QLCDNumber>
+#include <QLabel>
+#include "mainwindow.h"
 #include "result.h"
 
 namespace Ui {
@@ -15,6 +18,8 @@ class Game : public QMainWindow
 
 public:
     explicit Game(QWidget *parent = 0);
+    int score;
+    int arr[16], arr_his[16];
     ~Game();
 
 private slots:
@@ -22,14 +27,22 @@ private slots:
 
     void on_pushButton_2_clicked();
 
-    void KeyPressEvent(QKeyEvent *event);
 
 private:
     Ui::Game *ui;
     Game *game;
-    int arr[16];
-    int score;
-    void creat();
+    QLabel *arr_pic[16];
+    int i, j, k, change, near;
+    void Creat();
+    void check_change();
+    void check_near();
+    void Combine_Up();
+    void Combine_Down();
+    void Combine_Right();
+    void Combine_Left();
+    void showpic();
+    virtual void keyPressEvent(QKeyEvent *event);
+
 };
 
 #endif // GAME_H

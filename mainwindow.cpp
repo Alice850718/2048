@@ -17,7 +17,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     close();
-    game = new Game(this);
+    Game *game = new Game(this);
     game->show();
 
 }

@@ -2,6 +2,7 @@
 #define RESULT_H
 
 #include <QMainWindow>
+#include "mainwindow.h"
 #include "game.h"
 
 namespace Ui {
@@ -23,7 +24,7 @@ private slots:
 
 private:
     Ui::result *ui;
-    //Game *game;
+//    Game *game;
 };
 
 #endif // RESULT_H

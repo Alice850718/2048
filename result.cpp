@@ -17,8 +17,8 @@ result::~result()
 void result::on_pushButton_3_clicked()
 {
     close();
- /*   game = new Game(this);
-    game->show();*/
+    Game *game = new Game(this);
+    game->show();
 }
 
 
