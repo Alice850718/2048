@@ -5,8 +5,8 @@
 #include <QKeyEvent>
 #include <QLCDNumber>
 #include <QLabel>
-#include "mainwindow.h"
 #include "result.h"
+#include "mainwindow.h"
 
 namespace Ui {
 class Game;
@@ -17,8 +17,8 @@ class Game : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit Game(QWidget *parent = 0);
     int score;
+    explicit Game(QWidget *parent = 0);
     int arr[16], arr_his[16];
     ~Game();
 
@@ -32,7 +32,7 @@ private:
     Ui::Game *ui;
     Game *game;
     QLabel *arr_pic[16];
-    int i, j, k, change, near;
+    int i, j, k, change, near, count;
     void Creat();
     void check_change();
     void check_near();

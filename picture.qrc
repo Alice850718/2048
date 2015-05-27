@@ -12,5 +12,18 @@
         <file>1024.png</file>
         <file>2048.png</file>
         <file>0.png</file>
+        <file>-2.png</file>
+        <file>home.jpg</file>
+        <file>main.jpg</file>
+        <file>over.jpg</file>
+        <file>win.jpg</file>
+        <file>home_start.png</file>
+        <file>game_exit.png</file>
+        <file>game_start.png</file>
+        <file>game_score.png</file>
+        <file>gameover_restart.png</file>
+        <file>gameover_exit.png</file>
+        <file>win_restart.png</file>
+        <file>win_exit.png</file>
     </qresource>
 </RCC>

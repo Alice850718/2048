@@ -1,21 +1,21 @@
-#ifndef RESULT_H
-#define RESULT_H
+#ifndef WIN_H
+#define WIN_H
 
 #include <QMainWindow>
 #include "game.h"
 #include "mainwindow.h"
 
 namespace Ui {
-class result;
+class Win;
 }
 
-class result : public QMainWindow
+class Win : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit result(QWidget *parent = 0);
-    ~result();
+    explicit Win(QWidget *parent = 0);
+    ~Win();
 
 private slots:
     void on_pushButton_3_clicked();
@@ -23,7 +23,7 @@ private slots:
     void on_pushButton_4_clicked();
 
 private:
-    Ui::result *ui;
+    Ui::Win *ui;
 };
 
-#endif // RESULT_H
+#endif // WIN_H

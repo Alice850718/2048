@@ -17,10 +17,10 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>75</x>
-      <y>80</y>
-      <width>350</width>
-      <height>140</height>
+      <x>0</x>
+      <y>0</y>
+      <width>500</width>
+      <height>497</height>
      </rect>
     </property>
     <property name="font">
@@ -36,7 +36,10 @@
      </font>
     </property>
     <property name="text">
-     <string>2048</string>
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="picture.qrc">:/home.jpg</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -45,7 +48,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>175</x>
+      <x>190</x>
       <y>320</y>
       <width>150</width>
       <height>75</height>
@@ -59,8 +62,21 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
-     <string>Start</string>
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="picture.qrc">
+      <normaloff>:/home_start.png</normaloff>:/home_start.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>150</width>
+      <height>75</height>
+     </size>
     </property>
    </widget>
   </widget>
@@ -85,6 +101,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="picture.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -15,20 +15,17 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     game.cpp \
-    result.cpp \
-    win.cpp
+    result.cpp
 
 HEADERS  += mainwindow.h \
     game.h \
-    result.h \
-    win.h
+    result.h
 
 FORMS    += \
     mainwindow.ui \
     game.ui \
-    result.ui \
-    win.ui
+    result.ui
 
 RESOURCES += \
     picture.qrc
-DESTDIR += C:\Users\asdasd\Desktop\C++
+//DESTDIR += C:\Users\asdasd\Desktop\C++

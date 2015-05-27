@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>result</class>
- <widget class="QMainWindow" name="result">
+ <class>Win</class>
+ <widget class="QMainWindow" name="Win">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -39,7 +39,7 @@
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="picture.qrc">:/over.jpg</pixmap>
+     <pixmap resource="picture.qrc">:/win.jpg</pixmap>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -48,10 +48,10 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>300</y>
-      <width>120</width>
-      <height>80</height>
+      <x>20</x>
+      <y>320</y>
+      <width>110</width>
+      <height>60</height>
      </rect>
     </property>
     <property name="font">
@@ -68,22 +68,22 @@
     </property>
     <property name="icon">
      <iconset resource="picture.qrc">
-      <normaloff>:/gameover_restart.png</normaloff>:/gameover_restart.png</iconset>
+      <normaloff>:/win_restart.png</normaloff>:/win_restart.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>120</width>
-      <height>80</height>
+      <width>110</width>
+      <height>60</height>
      </size>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>300</y>
-      <width>120</width>
-      <height>80</height>
+      <x>160</x>
+      <y>320</y>
+      <width>110</width>
+      <height>60</height>
      </rect>
     </property>
     <property name="font">
@@ -100,12 +100,12 @@
     </property>
     <property name="icon">
      <iconset resource="picture.qrc">
-      <normaloff>:/gameover_exit.png</normaloff>:/gameover_exit.png</iconset>
+      <normaloff>:/win_exit.png</normaloff>:/win_exit.png</iconset>
     </property>
     <property name="iconSize">
      <size>
-      <width>120</width>
-      <height>80</height>
+      <width>110</width>
+      <height>60</height>
      </size>
     </property>
    </widget>

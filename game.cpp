@@ -1,5 +1,8 @@
+#include "win.h"
 #include "game.h"
+#include "result.h"
 #include "ui_game.h"
+#include "mainwindow.h"
 #include <QTime>
 #include <QPixmap>
 #include <QLCDNumber>
@@ -10,11 +13,11 @@ Game::Game(QWidget *parent) :
     ui(new Ui::Game)
 {
     ui->setupUi(this);
+    score = 0;
     for(i = 0; i < 16; i ++)
     {
         arr[i] = 0;
     }
-    ui->lcdnumber->display(score);
     arr_pic[0] = ui->pic_0;
     arr_pic[1] = ui->pic_1;
     arr_pic[2] = ui->pic_2;
@@ -33,6 +36,8 @@ Game::Game(QWidget *parent) :
     arr_pic[15] = ui->pic_15;
     Creat();
     Creat();
+    score = 0;
+    count = 0;
     showpic();
 }
 
@@ -53,18 +58,32 @@ void Game::on_pushButton_2_clicked()
     close();
 }
 
-void Game::Creat()
+void Game::Creat()      //隨機產生2(每次一個)或-2(每五次一個)
 {
-    qsrand(QDateTime::currentDateTime ().toTime_t ());
+    qsrand(QDateTime::currentDateTime().toTime_t());
     for(i = 0; i < 1; i ++)
     {
         int a = qrand()%16;
         if(arr[a] == 0)
-            arr[a] = 2;
+        {
+            if(count == 5)
+            {
+                arr[a] = -2;
+                count = 0;
+            }
+            else
+            {
+                arr[a] = 2;
+                count ++;
+            }
+        }
         else
+        {
             i--;
+        }
     }
     score = score + 2;
+
 }
 
 void Game::check_change()
@@ -110,19 +129,30 @@ void Game::Combine_Up()
     }
     for(i = 0; i < 12; i ++)    //若數字相同則結合
     {
-        if(arr[i] == arr[i+4])
+        if(arr[i] + arr[i+4] == 0)
         {
-            arr[i] = arr[i]*2;
+            arr[i] = 0;
             arr[i+4] = 0;
-            score = score + arr[i];
+        }
+        else
+        {
+            if(arr[i] == arr[i+4] && arr[i] != -2)
+            {
+                arr[i] = arr[i]*2;
+                arr[i+4] = 0;
+                score = score + arr[i];
+            }
         }
     }
-    for(i = 0; i < 12; i ++)    //將數字推移
+    for(j = 0; j < 3; j ++)
     {
-        if(arr[i] == 0)
+        for(i = 0; i < 12; i ++)    //將數字推移
         {
-            arr[i] = arr[i+4];
-            arr[i+4] = 0;
+            if(arr[i] == 0)
+            {
+                arr[i] = arr[i+4];
+                arr[i+4] = 0;
+            }
         }
     }
 }
@@ -142,19 +172,30 @@ void Game::Combine_Down()
     }
     for(i = 15; i > 3; i --)    //若數字相同則結合
     {
-        if(arr[i] == arr[i-4])
+        if(arr[i] + arr[i-4] == 0)
         {
-            arr[i] = arr[i] + arr[i-4];
+            arr[i] = 0;
             arr[i-4] = 0;
-            score = score + arr[i];
+        }
+        else
+        {
+            if(arr[i] == arr[i-4] && arr[i] != -2)
+            {
+                arr[i] = arr[i] + arr[i-4];
+                arr[i-4] = 0;
+                score = score + arr[i];
+            }
         }
     }
-    for(i = 15; i > 3; i --)    //將數字推移
+    for(j = 0; j < 3; j ++)
     {
-        if(arr[i] == 0)
+        for(i = 15; i > 3; i --)    //將數字推移
         {
-            arr[i] = arr[i-4];
-            arr[i-4] = 0;
+            if(arr[i] == 0)
+            {
+                arr[i] = arr[i-4];
+                arr[i-4] = 0;
+            }
         }
     }
 }
@@ -177,21 +218,32 @@ void Game::Combine_Left()
     for(i = 0; i < 12; i ++)    //若數字相同則結合
     {
         k = i%4*4 + i/4%4;
-        if(arr[k] == arr[k+1])
+        if(arr[k] + arr[k+1] == 0)
         {
-            arr[k] = arr[k] + arr[k+1];
+            arr[k] = 0;
             arr[k+1] = 0;
-            score = score + arr[k];
+        }
+        else
+        {
+            if(arr[k] == arr[k+1] && arr[k] != -2)
+            {
+                arr[k] = arr[k] + arr[k+1];
+                arr[k+1] = 0;
+                score = score + arr[k];
+            }
         }
     }
-    for(i = 0; i < 12; i ++)    //將數字推移
+    for(j = 0; j < 3; j ++)
     {
-        k = i%4*4 + i/4%4;
-        if(arr[k] == 0)
+        for(i = 0; i < 12; i ++)    //將數字推移
         {
-            arr[k] = arr[k+1];
-            arr[k+1] = 0;
-            score = score + arr[k];
+            k = i%4*4 + i/4%4;
+            if(arr[k] == 0)
+            {
+                arr[k] = arr[k+1];
+                arr[k+1] = 0;
+                score = score + arr[k];
+            }
         }
     }
 }
@@ -214,24 +266,36 @@ void Game::Combine_Right()
     for(i = 15; i > 3; i --)    //若數字相同則結合
     {
         k = i%4*4 + i/4%4;
-        if(arr[k] == arr[k-1])
+        if(arr[k] + arr[k-1] == 0)
         {
-            arr[k] = arr[k] + arr[k-1];
+            arr[k] = 0;
             arr[k-1] = 0;
-            score = score + arr[k];
+        }
+        else
+        {
+            if(arr[k] == arr[k-1] && arr[k] != -2)
+            {
+                arr[k] = arr[k] + arr[k-1];
+                arr[k-1] = 0;
+                score = score + arr[k];
+            }
         }
     }
-    for(i = 15; i > 3; i --)    //將數字推移
+    for(j = 0; j < 3; j ++)
     {
-        k = i%4*4 + i/4%4;
-        if(arr[k] == 0)
+        for(i = 15; i > 3; i --)    //將數字推移
         {
-            arr[k] = arr[k-1];
-            arr[k-1] = 0;
-            score = score + arr[k];
+            k = i%4*4 + i/4%4;
+            if(arr[k] == 0)
+            {
+                arr[k] = arr[k-1];
+                arr[k-1] = 0;
+                score = score + arr[k];
+            }
         }
     }
 }
+
 void Game::keyPressEvent(QKeyEvent *event)
 {
     for(i=0;i<16;i++)
@@ -240,8 +304,8 @@ void Game::keyPressEvent(QKeyEvent *event)
         if(arr[i] == 2048)
         {
             close();
-            result *re = new result(this);
-            re->show();
+            Win *win = new Win(this);
+            win->show();
         }
     }
     if(event->key() == Qt::Key_W)
@@ -265,7 +329,6 @@ void Game::keyPressEvent(QKeyEvent *event)
     {
         Creat();
         showpic();
-        ui->lcdnumber->display(score);
     }
     else
     {
@@ -285,6 +348,9 @@ void Game::showpic()
     {
         switch (arr[i])
         {
+            case -2:
+                arr_pic[i]->setPixmap(QPixmap(":/-2.png"));
+            break;
             case 0:
                 arr_pic[i]->setPixmap(QPixmap(":/0.png"));
             break;
@@ -324,4 +390,5 @@ void Game::showpic()
         }
 
     }
+    ui->lcdnumber->display(score);
 }

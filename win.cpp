@@ -1,30 +1,29 @@
+#include "win.h"
 #include "game.h"
 #include "result.h"
 #include "mainwindow.h"
-#include "ui_result.h"
-#include <QLCDNumber>
+#include "ui_win.h"
 
-result::result(QWidget *parent) :
+Win::Win(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::result)
+    ui(new Ui::Win)
 {
     ui->setupUi(this);
 }
 
-result::~result()
+Win::~Win()
 {
     delete ui;
 }
 
-void result::on_pushButton_3_clicked()
+void Win::on_pushButton_3_clicked()
 {
     close();
     Game *game = new Game(this);
     game->show();
 }
 
-
-void result::on_pushButton_4_clicked()
+void Win::on_pushButton_4_clicked()
 {
     close();
 }
