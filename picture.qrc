@@ -25,5 +25,6 @@
         <file>gameover_exit.png</file>
         <file>win_restart.png</file>
         <file>win_exit.png</file>
+        <file>-4.png</file>
     </qresource>
 </RCC>

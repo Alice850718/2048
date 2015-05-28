@@ -120,7 +120,7 @@ void Game::Combine_Up()
     {
         for(i = 0; i < 12; i ++)    //將數字推移
         {
-            if(arr[i] == 0 && arr[i] != -4)
+            if(arr[i] == 0)
             {
                 arr[i] = arr[i+4];
                 arr[i+4] = 0;
@@ -136,7 +136,7 @@ void Game::Combine_Up()
         }
         else
         {
-            if(arr[i] == arr[i+4] && arr[i] != -4)
+            if(arr[i] == arr[i+4] && arr[i] != -2)
             {
                 arr[i] = arr[i]*2;
                 arr[i+4] = 0;
@@ -148,7 +148,7 @@ void Game::Combine_Up()
     {
         for(i = 0; i < 12; i ++)    //將數字推移
         {
-            if(arr[i] == 0 && arr[i+4] != -4)
+            if(arr[i] == 0)
             {
                 arr[i] = arr[i+4];
                 arr[i+4] = 0;
@@ -163,7 +163,7 @@ void Game::Combine_Down()
     {
         for(i = 15; i > 3; i --)    //將數字推移
         {
-            if(arr[i] == 0 && arr[i-4] != -4)
+            if(arr[i] == 0)
             {
                 arr[i] = arr[i-4];
                 arr[i-4] = 0;
@@ -179,7 +179,7 @@ void Game::Combine_Down()
         }
         else
         {
-            if(arr[i] == arr[i-4] && arr[i] != -4)
+            if(arr[i] == arr[i-4] && arr[i] != -2)
             {
                 arr[i] = arr[i] + arr[i-4];
                 arr[i-4] = 0;
@@ -191,7 +191,7 @@ void Game::Combine_Down()
     {
         for(i = 15; i > 3; i --)    //將數字推移
         {
-            if(arr[i] == 0 && arr[i-4] != -4)
+            if(arr[i] == 0)
             {
                 arr[i] = arr[i-4];
                 arr[i-4] = 0;
@@ -207,7 +207,7 @@ void Game::Combine_Left()
         for(i = 0; i < 12; i ++)    //將數字推移
         {
             k = i%4*4 + i/4%4;
-            if(arr[k] == 0 && arr[k+1] != -4)
+            if(arr[k] == 0)
             {
                 arr[k] = arr[k+1];
                 arr[k+1] = 0;
@@ -225,7 +225,7 @@ void Game::Combine_Left()
         }
         else
         {
-            if(arr[k] == arr[k+1] && arr[k] != -4)
+            if(arr[k] == arr[k+1] && arr[k] != -2)
             {
                 arr[k] = arr[k] + arr[k+1];
                 arr[k+1] = 0;
@@ -238,7 +238,7 @@ void Game::Combine_Left()
         for(i = 0; i < 12; i ++)    //將數字推移
         {
             k = i%4*4 + i/4%4;
-            if(arr[k] == 0 && arr[k+1] != -4)
+            if(arr[k] == 0)
             {
                 arr[k] = arr[k+1];
                 arr[k+1] = 0;
@@ -255,7 +255,7 @@ void Game::Combine_Right()
         for(i = 15; i > 3; i --)    //將數字推移
         {
             k = i%4*4 + i/4%4;
-            if(arr[k] == 0 && arr[k-1] != -4)
+            if(arr[k] == 0)
             {
                 arr[k] = arr[k-1];
                 arr[k-1] = 0;
@@ -273,7 +273,7 @@ void Game::Combine_Right()
         }
         else
         {
-            if(arr[k] == arr[k-1] && arr[k] != -4)
+            if(arr[k] == arr[k-1] && arr[k] != -2)
             {
                 arr[k] = arr[k] + arr[k-1];
                 arr[k-1] = 0;
@@ -286,7 +286,7 @@ void Game::Combine_Right()
         for(i = 15; i > 3; i --)    //將數字推移
         {
             k = i%4*4 + i/4%4;
-            if(arr[k] == 0 && arr[k-1] != -4)
+            if(arr[k] == 0)
             {
                 arr[k] = arr[k-1];
                 arr[k-1] = 0;
@@ -348,9 +348,6 @@ void Game::showpic()
     {
         switch (arr[i])
         {
-            case -4:
-                arr_pic[i]->setPixmap(QPixmap(":/-4.png"));
-            break;
             case -2:
                 arr_pic[i]->setPixmap(QPixmap(":/-2.png"));
             break;
