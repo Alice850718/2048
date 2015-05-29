@@ -58,7 +58,7 @@ void Game::on_pushButton_2_clicked()
     close();
 }
 
-void Game::Creat()      //隨機產生2(每次一個)或-2(每五次一個)
+void Game::Creat()      //隨機產生2(每次一個)或-2(每3次一個)
 {
     qsrand(QDateTime::currentDateTime().toTime_t());
     for(i = 0; i < 1; i ++)
@@ -66,7 +66,7 @@ void Game::Creat()      //隨機產生2(每次一個)或-2(每五次一個)
         int a = qrand()%16;
         if(arr[a] == 0)
         {
-            if(count == 5)
+            if(count == 3)
             {
                 arr[a] = -2;
                 count = 0;
