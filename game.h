@@ -41,7 +41,7 @@ private:
     void Combine_Right();
     void Combine_Left();
     void showpic();
-    virtual void keyPressEvent(QKeyEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 };
 
